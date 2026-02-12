@@ -17,7 +17,7 @@ define(['N/currentRecord'], function(currentRecord) {
                 line: i
             });
 
-            alert('Carga: '+i);
+            //alert('Carga: '+i);
 
             // 2. Establecer el nuevo valor en el campo deseado
             rec.setCurrentSublistText({
