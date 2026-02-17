@@ -83,7 +83,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
                         columns: ['name']
                     }).name;
 
-                    //alert('Familia: ' + hierarchyNodeName);
+                    alert('Familia: ' + hierarchyNodeName);
 
                     if (hierarchyNodeName === 'Productos Quimicos' || hierarchyNodeName === 'Cuñetes de Cloro') {
                         itemQuimExist = true;
@@ -127,7 +127,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
                                     //alert(rate);
                                     var options = {
                                         title: 'Información',
-                                        message: 'El Cantidad en el Artículo debe estar en multiplos de: ' + rate,
+                                        message: 'La Cantidad en el Artículo debe estar en multiplos de: ' + rate,
                                         buttons: [{
                                             label: 'Entendio',
                                             value: false
@@ -491,7 +491,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
         var lineCount = currentRecord.getLineCount({
             sublistId: 'item'
         });
-        //alert('Entrega ' + fieldValue);
+        //alert('Entrega ' + lineCount);
         if (lineCount > 5 && (fieldValue.indexOf("F.O.B. Entrega en almacén GPA CON Cliente Presente") !== -1 || fieldValue.indexOf("F.O.B. Entrega en almacén GPA SIN Cliente Presente") !== -1)) {
             var options = {
                 title: 'Información!',
@@ -514,7 +514,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
         //FIN SO CON ENTREGA FOB Y MAS DE 5 ARTICULOS
 
         // SO FECHA DE ENVIO
-        fieldValue = currentRecord.getValue('shipdate');
+/*         fieldValue = currentRecord.getValue('shipdate');
 
         if (fieldValue) {
             try {
@@ -553,7 +553,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
                     details: e.message
                 });
             }
-        }
+        } */
         //FIN SO FECHA DE ENVIO
 
         //Require Anticipo
