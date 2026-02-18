@@ -175,7 +175,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
                             }
                         });
 
-                        if (batch == true) {
+                        if (batch == true && hierarchyNodeName.indexOf('Recubrimiento') === -1) {
                             var options = {
                                 title: 'Información',
                                 message: 'No hay existencia de un solo Lote para surtir la cantidad requerida del Artículo',

@@ -2,7 +2,7 @@
  * @NApiVersion 2.x
  * @NScriptType ClientScript
  */
-define(['N/currentRecord'], function(currentRecord) {
+define(['N/currentRecord'], function (currentRecord) {
     function pageInit(scriptContext) {
         // Solo ejecutar en modo 'edit' para evitar errores en 'view'
         if (scriptContext.mode !== 'copy') return;
@@ -17,18 +17,32 @@ define(['N/currentRecord'], function(currentRecord) {
                 line: i
             });
 
-            //alert('Carga: '+i);
-
-            // 2. Establecer el nuevo valor en el campo deseado
-            rec.setCurrentSublistText({
+            //Validanmos la cantiadad surtida
+            var quantityValue = rec.getCurrentSublistValue({
                 sublistId: 'item',
-                fieldId: 'custcol_mx_txn_line_sat_tax_object',
-                text: '02 - Sí objeto de impuesto.',
-                ignoreFieldChange: true
+                fieldId: 'quantity'
             });
 
-            // 3. Confirmar los cambios en la línea
-            rec.commitLine({ sublistId: 'item' });
+            if (quantityValue != 0) {
+                // 2. Establecer el nuevo valor en el campo deseado
+                rec.setCurrentSublistText({
+                    sublistId: 'item',
+                    fieldId: 'custcol_mx_txn_line_sat_tax_object',
+                    text: '02 - Sí objeto de impuesto.',
+                    ignoreFieldChange: true
+                });
+
+                // 3. Confirmar los cambios en la línea
+                rec.commitLine({ sublistId: 'item' });
+            }
+            else{
+                rec.removeLine({
+                    sublistId: 'item',
+                    line: i
+                });
+            }
+
+
         }
     }
 
