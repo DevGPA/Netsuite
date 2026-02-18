@@ -27,6 +27,6 @@ define(['N/currentRecord'], function(currentRecord) {
     }
 
     return {
-        disableAndProcess: disableAndProcess
+        pageInit: disableAndProcess
     };
 });
