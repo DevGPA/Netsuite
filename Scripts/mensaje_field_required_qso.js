@@ -37,7 +37,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
             var itemType = itemLookup.recordtype;
             //alert(itemType);
 
-            if (itemId && itemType != 'noninventoryitem') {
+            if (itemId && itemType != 'noninventoryitem' && itemType != 'lotnumberedassemblyitem') {
                 var itemRecord = record.load({
                     type: record.Type.INVENTORY_ITEM, // Or other item types
                     id: itemId
