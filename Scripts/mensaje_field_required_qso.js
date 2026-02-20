@@ -561,7 +561,7 @@ define(['N/record', 'N/ui/dialog', 'N/search'], function (record, dialog, search
         //alert(fieldValue);
         if (fieldValue == true) {
 
-            fieldValue = currentRecord.getValue('custbody_lr_u0197_invoice_anticipio');
+            fieldValue = currentRecord.getValue('custbodygpa_factura_anticipo');
             alert(fieldValue + ' Vacio');
             if (fieldValue == '') {
                 var options = {
